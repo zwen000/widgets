@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Dropdown from "../Dropdown";
+import Convert from "./Convert";
+
+
 
 const options = [
   {
@@ -16,7 +19,15 @@ const options = [
   },
   {
     label: "Chinese",
-    value: "cn",
+    value: "zh",
+  },
+  {
+    label: "Dutch",
+    value: "nl",
+  },
+  {
+    label: "Janpenese",
+    value: "ja",
   },
 ];
 
@@ -25,7 +36,7 @@ const Translate = (props) => {
   const [text, setText] = useState("");
 
   return (
-    <div>
+    <div className="ui container">
       <div className="ui form">
         <div className="field">
           <label>Enter a text</label>
@@ -39,6 +50,10 @@ const Translate = (props) => {
         onSelectedChange={setLanguage}
         label="Select a language"
       />
+      <hr/>
+      <h3 className="ui header">Output</h3>
+      <Convert language={language} text={text}/>
+
     </div>
   );
 };
